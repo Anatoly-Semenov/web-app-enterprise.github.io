@@ -35,7 +35,6 @@ const SidebarPlugin = {
       }
     });
     Vue.prototype.$sidebar = app.sidebarStore;
-    Vue.component('side-bar', Sidebar);
     Vue.component('sidebar-item', SidebarItem);
   }
 };

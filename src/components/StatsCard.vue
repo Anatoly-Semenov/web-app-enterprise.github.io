@@ -9,12 +9,11 @@
         </slot>
       </div>
 
-      <div class="col-auto" v-if="$slots.icon || icon">
+      <div class="col-auto">
         <slot name="icon">
-          <div class="icon icon-shape text-white rounded-circle shadow"
-               :class="[`bg-${type}`, iconClasses]">
-            <i :class="icon"></i>
-          </div>
+          <span class="avatar avatar-sm rounded-circle">
+            <img alt="Image placeholder" :src="icon">
+          </span>
         </slot>
       </div>
     </div>

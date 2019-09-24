@@ -4,14 +4,13 @@
     <div class="card-header border-0"
          :class="type === 'dark' ? 'bg-transparent': ''">
       <div class="row align-items-center">
-        <div class="col nav">
+        <div class="col">
           <h3 class="mb-0" :class="type === 'dark' ? 'text-white': ''">
-            {{title}}:
+            {{title}}
           </h3>
-          <p class="btn btn-primary btn-sm ml-100">{{position}}</p>
         </div>
         <div class="col text-right">
-          <base-button type="primary" size="sm">See all</base-button>
+          <base-button type="primary" size="sm">{{position}}</base-button>
         </div>
       </div>
     </div>
@@ -107,42 +106,34 @@
           {
             img: 'img/theme/bootstrap.jpg',
             name: 'Наталья',
-            position: 'Junior Frontend-developer',
-            duties: 'Разработка landing page на jquery',
+            position: 'Junior Backend-developer',
+            duties: 'Разработка Backend для landing page',
             statusType: 'danger',
-            age: 17
+            age: 57
           },
           {
             img: 'img/theme/bootstrap.jpg',
             name: 'Наталья',
-            position: 'Junior Frontend-developer',
-            duties: 'Разработка landing page на jquery',
-            statusType: 'danger',
-            age: 20
-          },
-          {
-            img: 'img/theme/bootstrap.jpg',
-            name: 'Наталья',
-            position: 'Junior Frontend-developer',
-            duties: 'Разработка landing page на jquery',
-            statusType: 'danger',
-            age: 28
-          },
-          {
-            img: 'img/theme/bootstrap.jpg',
-            name: 'Наталья',
-            position: 'Middle Frontend-developer',
-            duties: 'Разработка интернет-магазинов Angular',
+            position: 'Middle Backend-developer',
+            duties: 'Разработка API интернет-магазинов',
             statusType: 'info',
-            age: 35
+            age: 38
           },
           {
             img: 'img/theme/bootstrap.jpg',
             name: 'Наталья',
-            position: 'Senior Frontend-developer',
-            duties: 'Разработка CRM-сиситемы на Vue.js',
-            statusType: 'success',
+            position: 'Middle Backend-developer',
+            duties: 'Разработка API интернет-магазинов',
+            statusType: 'info',
             age: 40
+          },
+          {
+            img: 'img/theme/bootstrap.jpg',
+            name: 'Наталья',
+            position: 'Senior Backend-developer',
+            duties: 'Разработка API для CRM-системы',
+            statusType: 'success',
+            age: 29
           }
         ]
       }

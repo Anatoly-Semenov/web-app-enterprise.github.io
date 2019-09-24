@@ -8,9 +8,9 @@
             <div class="container-fluid d-flex align-items-center">
                 <div class="row">
                     <div class="col-lg-7 col-md-10">
-                        <h1 class="display-2 text-white">Hello Jesse</h1>
-                        <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-                        <a href="#!" class="btn btn-info">Edit profile</a>
+                        <h1 class="display-2 text-white">Привет Иван</h1>
+                        <p class="text-white mt-0 mb-5">Это старница для заполнения данных твоего профиля. Заполни все графы и можешь приступать к работе.</p>
+                        <a href="#" class="btn btn-info">Заполнить профиль</a>
                     </div>
                 </div>
             </div>
@@ -25,15 +25,15 @@
                             <div class="col-lg-3 order-lg-2">
                                 <div class="card-profile-image">
                                     <a href="#">
-                                        <img src="img/theme/team-4-800x800.jpg" class="rounded-circle">
+                                        <img src="https://ae01.alicdn.com/kf/HTB1eoh9fTmWBKNjSZFBq6xxUFXaV.jpg_q50.jpg" class="rounded-circle">
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                             <div class="d-flex justify-content-between">
-                                <base-button size="sm" type="info" class="mr-4">Connect</base-button>
-                                <base-button size="sm" type="default" class="float-right">Message</base-button>
+                                <base-button size="sm" type="info" class="mr-4">Опции</base-button>
+                                <base-button size="sm" type="default" class="float-right">Сообщения</base-button>
                             </div>
                         </div>
                         <div class="card-body pt-0 pt-md-4">
@@ -57,20 +57,20 @@
                             </div>
                             <div class="text-center">
                                 <h3>
-                                    Jessica Jones<span class="font-weight-light">, 27</span>
+                                    {{model.firstName}} {{model.lastName}}<span class="font-weight-light">, {{model.age}}</span>
                                 </h3>
                                 <div class="h5 font-weight-300">
-                                    <i class="ni location_pin mr-2"></i>Bucharest, Romania
+                                    <i class="ni location_pin mr-2"></i>Россия, Краснодар
                                 </div>
                                 <div class="h5 mt-4">
-                                    <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
+                                    <i class="ni business_briefcase-24 mr-2"></i>Teamlead
                                 </div>
                                 <div>
-                                    <i class="ni education_hat mr-2"></i>University of Computer Science
+                                    <i class="ni education_hat mr-2"></i>Управление командой разработчиков
                                 </div>
                                 <hr class="my-4" />
-                                <p>Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music.</p>
-                                <a href="#">Show more</a>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid exercitationem harum iure? At consequuntur, distinctio dolorem et exercitationem harum illo labore maxime nostrum omnis quam quas sed soluta suscipit, tempora.</p>
+                                <a href="#">Больше информации</a>
                             </div>
                         </div>
                     </div>
@@ -81,103 +81,103 @@
                         <div slot="header" class="bg-white border-0">
                             <div class="row align-items-center">
                                 <div class="col-8">
-                                    <h3 class="mb-0">My account</h3>
+                                    <h3 class="mb-0">Мой аккаунт</h3>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                                    <a href="#!" class="btn btn-sm btn-primary">Настройки</a>
                                 </div>
                             </div>
                         </div>
                         <template>
                             <form @submit.prevent>
-                                <h6 class="heading-small text-muted mb-4">User information</h6>
+                                <h6 class="heading-small text-muted mb-4">ИНФОРМАЦИЯ О ПОЛЬЗОВАТЕЛЕ</h6>
                                 <div class="pl-lg-4">
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <base-input alternative=""
-                                                        label="Username"
-                                                        placeholder="Username"
+                                                        label="имя пользователя"
+                                                        placeholder="имя пользователя"
                                                         input-classes="form-control-alternative"
-                                                        v-model="model.username"
+                                                        :model="model.username"
                                             />
                                         </div>
                                         <div class="col-lg-6">
                                             <base-input alternative=""
-                                                        label="Email address"
+                                                        label="Адрес электронной почты"
                                                         placeholder="jesse@example.com"
                                                         input-classes="form-control-alternative"
-                                                        v-model="model.email"
+                                                        :model="model.email"
                                             />
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <base-input alternative=""
-                                                        label="First name"
-                                                        placeholder="First name"
+                                                        label="Имя"
+                                                        placeholder="Иван"
                                                         input-classes="form-control-alternative"
-                                                        v-model="model.firstName"
+                                                        :model="model.firstName"
                                             />
                                         </div>
                                         <div class="col-lg-6">
                                             <base-input alternative=""
-                                                        label="Last name"
-                                                        placeholder="Last name"
+                                                        label="Фамилия"
+                                                        placeholder="Иванович"
                                                         input-classes="form-control-alternative"
-                                                        v-model="model.lastName"
+                                                        :model="model.lastName"
                                             />
                                         </div>
                                     </div>
                                 </div>
                                 <hr class="my-4" />
                                 <!-- Address -->
-                                <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                                <h6 class="heading-small text-muted mb-4">КОНТАКТЫ</h6>
                                 <div class="pl-lg-4">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <base-input alternative=""
-                                                        label="Address"
-                                                        placeholder="Home Address"
+                                                        label="Адрес"
+                                                        placeholder="Адрес"
                                                         input-classes="form-control-alternative"
-                                                        v-model="model.address"
+                                                        :model="model.address"
                                             />
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-4">
                                             <base-input alternative=""
-                                                        label="City"
-                                                        placeholder="City"
+                                                        label="город"
+                                                        placeholder="Москва"
                                                         input-classes="form-control-alternative"
-                                                        v-model="model.city"
+                                                        :model="model.city"
                                             />
                                         </div>
                                         <div class="col-lg-4">
                                             <base-input alternative=""
-                                                        label="Country"
-                                                        placeholder="Country"
+                                                        label="Страна"
+                                                        placeholder="Россия"
                                                         input-classes="form-control-alternative"
-                                                        v-model="model.country"
+                                                        :model="model.country"
                                             />
                                         </div>
                                         <div class="col-lg-4">
                                             <base-input alternative=""
-                                                        label="Postal code"
-                                                        placeholder="Postal code"
+                                                        label="Почтовый индекс"
+                                                        placeholder="000000"
                                                         input-classes="form-control-alternative"
-                                                        v-model="model.zipCode"
+                                                        :model="model.zipCode"
                                             />
                                         </div>
                                     </div>
                                 </div>
                                 <hr class="my-4" />
                                 <!-- Description -->
-                                <h6 class="heading-small text-muted mb-4">About me</h6>
+                                <h6 class="heading-small text-muted mb-4">ОБО МНЕ</h6>
                                 <div class="pl-lg-4">
                                     <div class="form-group">
                                         <base-input alternative=""
-                                                    label="About Me">
-                                            <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
+                                                    label="Текст обо мне">
+                                            <textarea rows="4" class="form-control form-control-alternative" placeholder="A few words about you ...">Текст обо мне</textarea>
                                         </base-input>
                                     </div>
                                 </div>
@@ -197,13 +197,14 @@
         model: {
           username: '',
           email: '',
-          firstName: '',
-          lastName: '',
+          age: '27',
+          firstName: 'Иван ',
+          lastName: 'Иванович',
           address: '',
           city: '',
           country: '',
           zipCode: '',
-          about: '',
+          about: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid exercitationem harum iure? At consequuntur, distinctio dolorem et exercitationem harum illo labore maxime nostrum omnis quam quas sed soluta suscipit, tempora.',
         }
       }
     },

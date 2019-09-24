@@ -10,7 +10,7 @@
             </div>
             <div class="progress-percentage" v-if="$slots.percentage || showPercentage">
                 <slot name="percentage">
-                    {{value}} %
+                    {{value}}
                 </slot>
             </div>
         </div>

@@ -28,6 +28,7 @@
                     :value="value"
                     v-on="listeners"
                     v-bind="$attrs"
+                    v-model="model"
                     class="form-control"
                     :class="[
                      {'is-valid': valid === true},
@@ -58,6 +59,7 @@ export default {
       type: Boolean,
       description: "Whether input is required (adds an asterix *)"
     },
+	model: String,
     valid: {
       type: Boolean,
       description: "Whether is valid",

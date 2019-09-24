@@ -4,59 +4,59 @@
             <!-- Card stats -->
             <div class="row">
                 <div class="col-xl-3 col-lg-6">
-                    <stats-card title="Total traffic"
+                    <stats-card title="Работник года"
                                 type="gradient-red"
-                                sub-title="350,897"
-                                icon="ni ni-active-40"
+                                sub-title="Иван Иванович"
+                                icon="img/theme/team-4-800x800.jpg"
                                 class="mb-4 mb-xl-0"
                     >
 
                         <template slot="footer">
-                            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                            <span class="text-nowrap">Since last month</span>
+                            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 98.48%</span>
+                            <span class="text-nowrap">Принес компании</span>
                         </template>
                     </stats-card>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <stats-card title="Total traffic"
+                    <stats-card title="Работник месяца"
                                 type="gradient-orange"
-                                sub-title="2,356"
-                                icon="ni ni-chart-pie-35"
+                                sub-title="Наталья Натальевна"
+                                icon="img/theme/team-4-800x800.jpg"
                                 class="mb-4 mb-xl-0"
                     >
 
                         <template slot="footer">
                             <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 12.18%</span>
-                            <span class="text-nowrap">Since last month</span>
+                            <span class="text-nowrap">Принес компании</span>
                         </template>
                     </stats-card>
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <stats-card title="Sales"
+                    <stats-card title="Худший работник года"
                                 type="gradient-green"
-                                sub-title="924"
-                                icon="ni ni-money-coins"
+                                sub-title="Генадий Генадиевич"
+                                icon="img/theme/team-4-800x800.jpg"
                                 class="mb-4 mb-xl-0"
                     >
 
                         <template slot="footer">
-                            <span class="text-danger mr-2"><i class="fa fa-arrow-down"></i> 5.72%</span>
-                            <span class="text-nowrap">Since last month</span>
+                            <span class="text-danger mr-2"><i class="fa fa-arrow-down"></i> 50.72%</span>
+                            <span class="text-nowrap">Забрал у компании</span>
                         </template>
                     </stats-card>
 
                 </div>
                 <div class="col-xl-3 col-lg-6">
-                    <stats-card title="Performance"
+                    <stats-card title="Худший работник месяца"
                                 type="gradient-info"
-                                sub-title="49,65%"
-                                icon="ni ni-chart-bar-32"
+                                sub-title="Сергей Сергеевич"
+                                icon="img/theme/team-4-800x800.jpg"
                                 class="mb-4 mb-xl-0"
                     >
 
                         <template slot="footer">
-                            <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 54.8%</span>
-                            <span class="text-nowrap">Since last month</span>
+                            <span class="text-danger mr-2"><i class="fa fa-arrow-down"></i> 10.18%</span>
+                            <span class="text-nowrap">Забрал у компании</span>
                         </template>
                     </stats-card>
                 </div>
@@ -70,8 +70,8 @@
                     <card type="default" header-classes="bg-transparent">
                         <div slot="header" class="row align-items-center">
                             <div class="col">
-                                <h6 class="text-light text-uppercase ls-1 mb-1">Overview</h6>
-                                <h5 class="h3 text-white mb-0">Sales value</h5>
+                                <h6 class="text-light text-uppercase ls-1 mb-1">График</h6>
+                                <h5 class="h3 text-white mb-0">Возраста сотрудников</h5>
                             </div>
                             <div class="col">
                                 <ul class="nav nav-pills justify-content-end">
@@ -80,7 +80,7 @@
                                            href="#"
                                            :class="{active: bigLineChart.activeIndex === 0}"
                                            @click.prevent="initBigChart(0)">
-                                            <span class="d-none d-md-block">Month</span>
+                                            <span class="d-none d-md-block">Взрослые</span>
                                             <span class="d-md-none">M</span>
                                         </a>
                                     </li>
@@ -89,7 +89,7 @@
                                            href="#"
                                            :class="{active: bigLineChart.activeIndex === 1}"
                                            @click.prevent="initBigChart(1)">
-                                            <span class="d-none d-md-block">Week</span>
+                                            <span class="d-none d-md-block">Молодые</span>
                                             <span class="d-md-none">W</span>
                                         </a>
                                     </li>
@@ -111,8 +111,8 @@
                     <card header-classes="bg-transparent">
                         <div slot="header" class="row align-items-center">
                             <div class="col">
-                                <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                                <h5 class="h3 mb-0">Total orders</h5>
+                                <h6 class="text-uppercase text-muted ls-1 mb-1">Продажи</h6>
+                                <h5 class="h3 mb-0">За последние пол года</h5>
                             </div>
                         </div>
 
@@ -128,13 +128,24 @@
             <!-- End charts-->
 
             <!--Tables-->
-            <div class="row mt-5">
-                <div class="col-xl-8 mb-5 mb-xl-0">
-                    <page-visits-table></page-visits-table>
-                </div>
-                <div class="col-xl-4">
-                    <social-traffic-table></social-traffic-table>
-                </div>
+            <div class="row mt--40">
+                <tabs class="col">
+                    <tab-pane title="Дизайнеры">
+                        <projects-table-ui-ux title="Таблица учета" position="Дизайнеры" />
+                    </tab-pane>
+                    <tab-pane title="Frontend">
+                        <projects-table-frontend title="Таблица учета" position="Frontend" />
+                    </tab-pane>
+                    <tab-pane title="Backend">
+                        <projects-table-backend title="Таблица учета" position="Backend" />
+                    </tab-pane>
+                    <tab-pane title="Тестеровщики">
+                        <projects-table-testers title="Таблица учета" position="Тестеровщики" />
+                    </tab-pane>
+                    <tab-pane title="Системные администраторы">
+                        <projects-table-system title="Таблица учета" position="Системные администраторы" />
+                    </tab-pane>
+                </tabs>
             </div>
             <!--End tables-->
         </div>
@@ -146,17 +157,22 @@
   import * as chartConfigs from '@/components/Charts/config';
   import LineChart from '@/components/Charts/LineChart';
   import BarChart from '@/components/Charts/BarChart';
+  import ProjectsTableUiUx from './Tables/ProjectsTableUiUX';
+  import ProjectsTableFrontend from './Tables/ProjectsTableFrontend';
+  import ProjectsTableBackend from './Tables/ProjectsTableBackend';
+  import ProjectsTableTesters from './Tables/ProjectsTableTesters';
+  import ProjectsTableSystem from './Tables/ProjectsTableSystem'
 
-  // Tables
-  import SocialTrafficTable from './Dashboard/SocialTrafficTable';
-  import PageVisitsTable from './Dashboard/PageVisitsTable';
 
   export default {
     components: {
       LineChart,
       BarChart,
-      PageVisitsTable,
-      SocialTrafficTable,
+      ProjectsTableUiUx,
+      ProjectsTableFrontend,
+      ProjectsTableBackend,
+      ProjectsTableTesters,
+      ProjectsTableSystem,
     },
     data() {
       return {
@@ -174,9 +190,9 @@
         },
         redBarChart: {
           chartData: {
-            labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            labels: ['Июль', 'Аугст', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
             datasets: [{
-              label: 'Sales',
+              label: 'Продаж',
               data: [25, 20, 30, 22, 17, 29]
             }]
           }
@@ -188,11 +204,11 @@
         let chartData = {
           datasets: [
             {
-              label: 'Performance',
+              label: 'Возраст',
               data: this.bigLineChart.allData[index]
             }
           ],
-          labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          labels: ['Май', 'Июнь', 'Июль', 'Аугст', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
         };
         this.bigLineChart.chartData = chartData;
         this.bigLineChart.activeIndex = index;

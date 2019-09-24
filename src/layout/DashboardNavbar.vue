@@ -17,10 +17,10 @@
                 <base-dropdown class="nav-link pr-0">
                     <div class="media align-items-center" slot="title">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="img/theme/team-4-800x800.jpg">
+                  <img alt="Image placeholder" src="https://ae01.alicdn.com/kf/HTB1eoh9fTmWBKNjSZFBq6xxUFXaV.jpg_q50.jpg">
                 </span>
                         <div class="media-body ml-2 d-none d-lg-block">
-                            <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                            <span class="mb-0 text-sm  font-weight-bold">Teamlead</span>
                         </div>
                     </div>
 
@@ -28,27 +28,19 @@
                         <div class=" dropdown-header noti-title">
                             <h6 class="text-overflow m-0">Welcome!</h6>
                         </div>
+                        <router-link to="/" class="dropdown-item">
+                            <i class="ni ni-calendar-grid-58"></i>
+                            <span>Главная</span>
+                        </router-link>
                         <router-link to="/profile" class="dropdown-item">
                             <i class="ni ni-single-02"></i>
-                            <span>My profile</span>
-                        </router-link>
-                        <router-link to="/profile" class="dropdown-item">
-                            <i class="ni ni-settings-gear-65"></i>
-                            <span>Settings</span>
-                        </router-link>
-                        <router-link to="/profile" class="dropdown-item">
-                            <i class="ni ni-calendar-grid-58"></i>
-                            <span>Activity</span>
-                        </router-link>
-                        <router-link to="/profile" class="dropdown-item">
-                            <i class="ni ni-support-16"></i>
-                            <span>Support</span>
+                            <span>Профиль</span>
                         </router-link>
                         <div class="dropdown-divider"></div>
-                        <router-link to="/profile" class="dropdown-item">
+                        <a href="http://test.myfinbroker.ru" class="dropdown-item">
                             <i class="ni ni-user-run"></i>
-                            <span>Logout</span>
-                        </router-link>
+                            <span>Выйти</span>
+                        </a>
                     </template>
                 </base-dropdown>
             </li>
