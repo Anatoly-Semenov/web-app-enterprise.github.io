@@ -20,7 +20,7 @@
                   :class="type === 'dark' ? 'table-dark': ''"
                   :thead-classes="type === 'dark' ? 'thead-dark': 'thead-light'"
                   tbody-classes="list"
-                  :data="frontend">
+                  :data="system">
         <template slot="columns">
           <th>Аватар</th>
           <th>Имя</th>
@@ -102,7 +102,8 @@
     },
     data() {
       return {
-        frontend: [
+        people: [],
+        system: [
           {
             img: 'img/theme/bootstrap.jpg',
             name: 'Наталья',
@@ -121,7 +122,7 @@
           },
           {
             img: 'img/theme/bootstrap.jpg',
-            name: 'Наталья',
+            name: 'asd',
             position: 'Системный администратор',
             duties: 'Администрирование',
             statusType: 'danger',
@@ -129,6 +130,17 @@
           }
         ]
       }
+    },
+    methods: {
+      getPeople() {
+        this.axios.get('https://randomuser.me/api/?results=').then((response) =>
+        this.people = response.data.results)
+      }
+      //this.person.name.first + '' + this.person.name.last
+    },
+    created() {
+     this.getPeople
+     console.log(this.people)
     }
   }
 </script>

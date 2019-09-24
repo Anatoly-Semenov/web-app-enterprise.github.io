@@ -4,14 +4,13 @@
     <div class="card-header border-0"
          :class="type === 'dark' ? 'bg-transparent': ''">
       <div class="row align-items-center">
-        <div class="col nav">
+        <div class="col">
           <h3 class="mb-0" :class="type === 'dark' ? 'text-white': ''">
             {{title}}:
           </h3>
-          <p class="btn btn-primary btn-sm ml-100">{{position}}</p>
         </div>
         <div class="col text-right">
-          <base-button type="primary" size="sm">See all</base-button>
+          <base-button type="primary" size="sm">{{position}}</base-button>
         </div>
       </div>
     </div>
