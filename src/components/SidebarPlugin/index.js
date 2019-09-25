@@ -1,4 +1,3 @@
-import Sidebar from './SideBar.vue';
 import SidebarItem from './SidebarItem.vue';
 
 const SidebarStore = {
