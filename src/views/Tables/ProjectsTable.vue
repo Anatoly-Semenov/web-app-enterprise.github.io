@@ -86,9 +86,8 @@
               </a>
 
               <template>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <button class="dropdown-item">Редактировать</button>
+                <button class="dropdown-item">Удалить</button>
               </template>
             </base-dropdown>
           </td>
@@ -96,10 +95,41 @@
       </base-table>
     </div>
 
-    <!--    <div class="card-footer d-flex justify-content-end"-->
-    <!--         :class="type === 'dark' ? 'bg-transparent': ''">-->
-    <!--      <base-pagination total="30"></base-pagination>-->
-    <!--    </div>-->
+    "primary" size="sm" @click="modal = true">{{ position }}
+      modal-classes="modal-danger modal-dialog-centered"
+    >
+      <h6 slot="header" class="modal-title" id="modal-title-notification">
+        Кто же такие UI UX дизайнеры ?
+      </h6>
+
+      <div class="py-3 text-center">
+        <i class="ni ni-image 55 ni-3x"></i>
+        <h4 class="heading mt-4">Дизайнеры</h4>
+        <p>
+          UX (англ. user experience) — дословно означает «опыт пользователя». В
+          более широком смысле это понятие включает в себя весь опыт, который
+          получает пользователь при взаимодействии с вашим сайтом или
+          приложением.
+          <br /><br />
+          UI (англ. user interface) переводится как «пользовательский
+          интерфейс». Он может быть не только графическим, но и тактильным,
+          голосовым, аудио-. Мы рассмотрим только графический интерфейс, так как
+          дизайнеры в основном работают с ним.
+        </p>
+      </div>
+
+      <template slot="footer">
+        <base-button type="white" @click="modal = false">ОКей</base-button>
+        <base-button
+          type="link"
+          text-color="white"
+          class="ml-auto"
+          @click="modal = false"
+        >
+          Закрыть
+        </base-button>
+      </template>
+    </modal>
   </div>
 </template>
 <script>

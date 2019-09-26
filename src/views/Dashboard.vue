@@ -145,27 +145,33 @@
       <div class="row mt--40">
         <tabs class="col">
           <tab-pane title="Дизайнеры">
-            <projects-table-ui-ux title="Таблица учета" position="Дизайнеры" />
+            <projects-table-ui-ux
+              title="Таблица учета"
+              position="Кто такие дизайнеры ?"
+            />
           </tab-pane>
           <tab-pane title="Frontend">
             <projects-table-frontend
               title="Таблица учета"
-              position="Frontend"
+              position="Кто такие Frontend-разработчики ?"
             />
           </tab-pane>
           <tab-pane title="Backend">
-            <projects-table-backend title="Таблица учета" position="Backend" />
+            <projects-table-backend
+              title="Таблица учета"
+              position="Кто такие Backend-разработчики ?"
+            />
           </tab-pane>
           <tab-pane title="Тестеровщики">
             <projects-table-testers
               title="Таблица учета"
-              position="Тестеровщики"
+              position="Кто такие Тестеровщики ?"
             />
           </tab-pane>
           <tab-pane title="Системные администраторы">
             <projects-table-system
               title="Таблица учета"
-              position="Системные администраторы"
+              position="Кто такие системные администраторы ?"
             />
           </tab-pane>
         </tabs>

@@ -11,7 +11,9 @@
           </h3>
         </div>
         <div class="col text-right">
-          <base-button type="primary" size="sm">{{ position }}</base-button>
+          <base-button type="primary" size="sm" @click="modal = true">{{
+            position
+          }}</base-button>
         </div>
       </div>
     </div>
@@ -82,9 +84,8 @@
               </a>
 
               <template>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <button class="dropdown-item">Редактировать</button>
+                <button class="dropdown-item">Удалить</button>
               </template>
             </base-dropdown>
           </td>
@@ -92,10 +93,40 @@
       </base-table>
     </div>
 
-    <!--    <div class="card-footer d-flex justify-content-end"-->
-    <!--         :class="type === 'dark' ? 'bg-transparent': ''">-->
-    <!--      <base-pagination total="30"></base-pagination>-->
-    <!--    </div>-->
+    <modal
+      size="big"
+      :show.sync="modal"
+      gradient="danger"
+      modal-classes="modal-danger modal-dialog-centered"
+    >
+      <h6 slot="header" class="modal-title" id="modal-title-notification">
+        Кто же такие Backend разработчики ?
+      </h6>
+
+      <div class="py-3 text-center">
+        <i class="ni ni-world-2 55 ni-3x"></i>
+        <h4 class="heading mt-4">Backend</h4>
+        <p>
+          Back-end разработчики несут ответственность за создание "серверной"
+          части в веб-приложениях, иначе говоря, они имеют дело со всем, что
+          относится к программно-административной части веб-приложения,
+          внутреннему содержанию системы, серверным технологиям — базам данных,
+          архитектуре, программной логике.
+        </p>
+      </div>
+
+      <template slot="footer">
+        <base-button type="white" @click="modal = false">ОКей</base-button>
+        <base-button
+          type="link"
+          text-color="white"
+          class="ml-auto"
+          @click="modal = false"
+        >
+          Закрыть
+        </base-button>
+      </template>
+    </modal>
   </div>
 </template>
 <script>
@@ -110,6 +141,7 @@ export default {
   },
   data() {
     return {
+      modal: false,
       backend: [
         {
           img: "img/theme/bootstrap.jpg",

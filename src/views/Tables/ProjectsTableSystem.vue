@@ -11,7 +11,9 @@
           </h3>
         </div>
         <div class="col text-right">
-          <base-button type="primary" size="sm">{{ position }}</base-button>
+          <base-button type="primary" size="sm" @click="modal = true">{{
+            position
+          }}</base-button>
         </div>
       </div>
     </div>
@@ -82,9 +84,8 @@
               </a>
 
               <template>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <button class="dropdown-item">Редактировать</button>
+                <button class="dropdown-item">Удалить</button>
               </template>
             </base-dropdown>
           </td>
@@ -92,10 +93,62 @@
       </base-table>
     </div>
 
-    <!--    <div class="card-footer d-flex justify-content-end"-->
-    <!--         :class="type === 'dark' ? 'bg-transparent': ''">-->
-    <!--      <base-pagination total="30"></base-pagination>-->
-    <!--    </div>-->
+    <modal
+      :show.sync="modal"
+      gradient="danger"
+      modal-classes="modal-danger modal-dialog-centered"
+      size="big"
+    >
+      <h6 slot="header" class="modal-title" id="modal-title-notification">
+        Как они администрирую наши проекты ?
+      </h6>
+
+      <div class="py-3 text-center">
+        <i class="ni ni-settings 55 ni-3x"></i>
+        <h4 class="heading mt-4">Системные Админстраторы</h4>
+        <p>
+          Настоящий Сис. Админ должен знать:
+          <br /><br />
+          Основы локальных сетей (протоколы, сетевое оборудование, принципы
+          построения сетей)
+          <br /><br />
+          Основы администрирования локальных сетей под управлением различных
+          операционных систем (Windows, Linux, Unix) - в зависимости от
+          потребностей компании
+          <br /><br />
+          Основы технического обслуживания и ремонта персонального компьютера.
+          Системный администратор должен уметь находить причину неисправности
+          персонального компьютера, сервера, должен знать технические
+          характеристики различных процессоров, материнских плат, винчестеров,
+          операционной памяти, мониторов. Должен иметь представление о
+          совместимости оборудования различных типов и производителей между
+          собой. Знать основы электроники - уметь определить неисправность
+          принтера, ксерокса, монитора и осуществлять несложный ремонт. Должен
+          уметь определить, в каком случае причина неисправности в оборудовании,
+          а в каком - в программном обеспечении
+          <br /><br />
+          Основы информационной безопасности. Это понятие включает в себя защиту
+          информации, находящейся на персональных компьютерах и серверах
+          локальной сети предприятия от несанкционированного доступа,
+          умышленного искажения и повреждения. В это же понятие включается
+          осуществление антивирусной защиты локальной сети и отдельных
+          компьютеров от вирусных атак, всякого рода троянских программ,
+          вредоносных макросов и программных закладок
+        </p>
+      </div>
+
+      <template slot="footer">
+        <base-button type="white" @click="modal = false">ОКей</base-button>
+        <base-button
+          type="link"
+          text-color="white"
+          class="ml-auto"
+          @click="modal = false"
+        >
+          Закрыть
+        </base-button>
+      </template>
+    </modal>
   </div>
 </template>
 <script>
@@ -110,6 +163,7 @@ export default {
   },
   data() {
     return {
+      modal: false,
       people: null,
       peopleOne: null,
       peopleTwo: null,

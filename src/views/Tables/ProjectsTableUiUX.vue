@@ -10,8 +10,24 @@
             {{ title }}:
           </h3>
         </div>
-        <div class="col text-right">
-          <base-button type="primary" size="sm">{{ position }}</base-button>
+        <div class="col text-right d-flex justify-content-end">
+          <div class="form-group mb-0">
+            <base-input
+              placeholder="Найти сотрудника"
+              class="input-group-alternative mb-0"
+              alternative=""
+              addon-right-icon="fas fa-search"
+              :model="search"
+            >
+            </base-input>
+          </div>
+          <base-button
+            class="ml-100"
+            type="primary"
+            size="sm"
+            @click="modal = true"
+            >{{ position }}</base-button
+          >
         </div>
       </div>
     </div>
@@ -23,6 +39,7 @@
         :thead-classes="type === 'dark' ? 'thead-dark' : 'thead-light'"
         tbody-classes="list"
         :data="design"
+        :exist="user"
       >
         <template slot="columns">
           <th>Аватар</th>
@@ -33,7 +50,7 @@
           <th></th>
         </template>
 
-        <template slot-scope="{ row }">
+        <template slot-scope="{ row }" v-if="user">
           <th scope="row">
             <slot name="icon">
               <span class="avatar avatar-sm rounded-circle">
@@ -82,9 +99,10 @@
               </a>
 
               <template>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <button class="dropdown-item">Редактировать</button>
+                <button class="dropdown-item" @click="user = !user">
+                  Удалить
+                </button>
               </template>
             </base-dropdown>
           </td>
@@ -92,10 +110,44 @@
       </base-table>
     </div>
 
-    <!--    <div class="card-footer d-flex justify-content-end"-->
-    <!--         :class="type === 'dark' ? 'bg-transparent': ''">-->
-    <!--      <base-pagination total="30"></base-pagination>-->
-    <!--    </div>-->
+    <modal
+      size="big"
+      :show.sync="modal"
+      gradient="danger"
+      modal-classes="modal-danger modal-dialog-centered"
+    >
+      <h6 slot="header" class="modal-title" id="modal-title-notification">
+        Кто же такие UI UX дизайнеры ?
+      </h6>
+
+      <div class="py-3 text-center">
+        <i class="ni ni-image 55 ni-3x"></i>
+        <h4 class="heading mt-4">Дизайнеры</h4>
+        <p>
+          UX (англ. user experience) — дословно означает «опыт пользователя». В
+          более широком смысле это понятие включает в себя весь опыт, который
+          получает пользователь при взаимодействии с вашим сайтом или
+          приложением.
+          <br /><br />
+          UI (англ. user interface) переводится как «пользовательский
+          интерфейс». Он может быть не только графическим, но и тактильным,
+          голосовым, аудио-. Мы рассмотрим только графический интерфейс, так как
+          дизайнеры в основном работают с ним.
+        </p>
+      </div>
+
+      <template slot="footer">
+        <base-button type="white" @click="modal = false">ОКей</base-button>
+        <base-button
+          type="link"
+          text-color="white"
+          class="ml-auto"
+          @click="modal = false"
+        >
+          Закрыть
+        </base-button>
+      </template>
+    </modal>
   </div>
 </template>
 <script>
@@ -110,6 +162,9 @@ export default {
   },
   data() {
     return {
+      modal: false,
+      user: true,
+      search: "",
       design: [
         {
           img: "img/theme/bootstrap.jpg",
@@ -145,6 +200,14 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    // Функция фильтрации и вывода массива с объектами сотрудников
+    // userList: function() {
+    //   return this.design.filter(function(item) {
+    //     return item.toLowerCase().indexOf(this.search.toLowerCase()) !== -1;
+    //   });
+    // }
   },
   methods: {
     getPeople() {

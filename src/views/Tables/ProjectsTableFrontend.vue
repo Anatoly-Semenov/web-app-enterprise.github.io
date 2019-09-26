@@ -11,7 +11,9 @@
           </h3>
         </div>
         <div class="col text-right">
-          <base-button type="primary" size="sm">{{ position }}</base-button>
+          <base-button type="primary" size="sm" @click="modal = true">{{
+            position
+          }}</base-button>
         </div>
       </div>
     </div>
@@ -82,9 +84,8 @@
               </a>
 
               <template>
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <button class="dropdown-item">Редактировать</button>
+                <button class="dropdown-item">Удалить</button>
               </template>
             </base-dropdown>
           </td>
@@ -92,10 +93,45 @@
       </base-table>
     </div>
 
-    <!--    <div class="card-footer d-flex justify-content-end"-->
-    <!--         :class="type === 'dark' ? 'bg-transparent': ''">-->
-    <!--      <base-pagination total="30"></base-pagination>-->
-    <!--    </div>-->
+    <modal
+      size="big"
+      :show.sync="modal"
+      gradient="danger"
+      modal-classes="modal-danger modal-dialog-centered"
+    >
+      <h6 slot="header" class="modal-title" id="modal-title-notification">
+        Все об frontend-developers
+      </h6>
+
+      <div class="py-3 text-center">
+        <i class="ni ni ni-atom 55 ni-3x"></i>
+        <h4 class="heading mt-4">Frontend-разработчики</h4>
+        <p>
+          Фронтенд-разработчик не просто верстает макеты. Он хорошо знает
+          JavaScript, разбирается во фреймворках и библиотеках (и активно юзает
+          часть из них), понимает, что находится «под капотом» на серверной
+          стороне. Его не пугают препроцессоры и сборщики LESS, SASS, GRUNT,
+          GULP, он умеет работать с DOM, API, SVG-объектами, AJAX и CORS, может
+          составлять SQL-запросы и копаться в данных. Получается сборная солянка
+          навыков, к которым добавляется понимание принципов
+          UI/UX-проектирования, адаптивной и отзывчивой верстки,
+          кросс-браузерности и кросс-платформенности, а иногда и навыков
+          мобильной разработки.
+        </p>
+      </div>
+
+      <template slot="footer">
+        <base-button type="white" @click="modal = false">ОКей</base-button>
+        <base-button
+          type="link"
+          text-color="white"
+          class="ml-auto"
+          @click="modal = false"
+        >
+          Закрыть
+        </base-button>
+      </template>
+    </modal>
   </div>
 </template>
 <script>
@@ -110,6 +146,7 @@ export default {
   },
   data() {
     return {
+      modal: false,
       frontend: [
         {
           img: "img/theme/bootstrap.jpg",
