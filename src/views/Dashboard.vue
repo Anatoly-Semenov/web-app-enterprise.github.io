@@ -3,71 +3,21 @@
     <base-header type="gradient-success" class="pb-6 pb-8 pt-5 pt-md-8">
       <!-- Card stats -->
       <div class="row">
-        <div class="col-xl-3 col-lg-6">
+        <div class="col-xl-3 col-lg-6" v-for="worker in getBestWorkers" :key="worker.id">
           <stats-card
-            title="Работник года"
+            :title="worker.status"
             type="gradient-red"
-            :sub-title="bestWorkerYearName"
-            :icon="bestWorkerYearImg"
+            :sub-title="worker.name"
+            :icon="worker.img"
             class="mb-4 mb-xl-0"
           >
             <template slot="footer">
               <span class="text-success mr-2"
-                ><i class="fa fa-arrow-up"></i>
-                {{ bestWorkerYearPercent }}.48%</span
-              >
+                ><i class="fa fa-arrow-up" />{{
+                  worker.percent + "." + worker.id
+                }}
+              </span>
               <span class="text-nowrap">Принес компании</span>
-            </template>
-          </stats-card>
-        </div>
-        <div class="col-xl-3 col-lg-6">
-          <stats-card
-            title="Работник месяца"
-            type="gradient-orange"
-            :sub-title="bestWorkerMonthName"
-            :icon="bestWorkerMonthImg"
-            class="mb-4 mb-xl-0"
-          >
-            <template slot="footer">
-              <span class="text-success mr-2"
-                ><i class="fa fa-arrow-up"></i>
-                {{ bestWorkerMonthPercent }}.18%</span
-              >
-              <span class="text-nowrap">Принес компании</span>
-            </template>
-          </stats-card>
-        </div>
-        <div class="col-xl-3 col-lg-6">
-          <stats-card
-            title="Худший работник года"
-            type="gradient-green"
-            :sub-title="worstWorkerYearName"
-            :icon="worstWorkerYearImg"
-            class="mb-4 mb-xl-0"
-          >
-            <template slot="footer">
-              <span class="text-danger mr-2"
-                ><i class="fa fa-arrow-down"></i>
-                {{ worstWorkerYearPercent }}.72%</span
-              >
-              <span class="text-nowrap">Забрал у компании</span>
-            </template>
-          </stats-card>
-        </div>
-        <div class="col-xl-3 col-lg-6">
-          <stats-card
-            title="Худший работник месяца"
-            type="gradient-info"
-            :sub-title="worstWorkerMonthName"
-            :icon="worstWorkerMonthImg"
-            class="mb-4 mb-xl-0"
-          >
-            <template slot="footer">
-              <span class="text-danger mr-2"
-                ><i class="fa fa-arrow-down"></i>
-                {{ worstWorkerMonthPercent }}.18%</span
-              >
-              <span class="text-nowrap">Забрал у компании</span>
             </template>
           </stats-card>
         </div>
@@ -182,6 +132,7 @@
 </template>
 <script>
 // Charts
+import { mapGetters } from "vuex";
 import * as chartConfigs from "@/components/Charts/config";
 import LineChart from "@/components/Charts/LineChart";
 import BarChart from "@/components/Charts/BarChart";
@@ -203,22 +154,6 @@ export default {
   },
   data() {
     return {
-      bestWorkerYearImg: "",
-      bestWorkerYearName: "",
-      bestWorkerYearPercent: 98,
-
-      bestWorkerMonthImg: "",
-      bestWorkerMonthName: "",
-      bestWorkerMonthPercent: 12,
-
-      worstWorkerYearImg: "",
-      worstWorkerYearName: "",
-      worstWorkerYearPercent: 50,
-
-      worstWorkerMonthImg: "",
-      worstWorkerMonthName: "",
-      worstWorkerMonthPercent: 10,
-
       bigLineChart: {
         allData: [
           [0, 20, 10, 30, 15, 40, 20, 60, 60],
@@ -273,54 +208,15 @@ export default {
       };
       this.bigLineChart.chartData = chartData;
       this.bigLineChart.activeIndex = index;
-    },
-    getPeople() {
-      this.axios.get("https://randomuser.me/api/?results=4").then(response => {
-        this.bestWorkerYearImg = response.data.results[0].picture.thumbnail;
-        this.bestWorkerMonthImg = response.data.results[1].picture.thumbnail;
-        this.worstWorkerYearImg = response.data.results[2].picture.thumbnail;
-        this.worstWorkerMonthImg = response.data.results[3].picture.thumbnail;
-
-        this.bestWorkerYearName =
-          response.data.results[0].name.first +
-          " " +
-          response.data.results[0].name.last;
-        this.bestWorkerMonthName =
-          response.data.results[1].name.first +
-          " " +
-          response.data.results[1].name.last;
-        this.worstWorkerYearName =
-          response.data.results[2].name.first +
-          " " +
-          response.data.results[2].name.last;
-        this.worstWorkerMonthName =
-          response.data.results[3].name.first +
-          " " +
-          response.data.results[3].name.last;
-
-        this.bigLineChart.allData[0][1] = response.data.results[0].dob.age;
-        this.bigLineChart.allData[0][4] = response.data.results[1].dob.age;
-        this.bigLineChart.allData[0][6] = response.data.results[2].dob.age;
-
-        this.bigLineChart.allData[1][1] =
-          response.data.results[0].registered.age;
-        this.bigLineChart.allData[1][3] =
-          response.data.results[1].registered.age;
-        this.bigLineChart.allData[1][5] =
-          response.data.results[2].registered.age;
-
-        this.bestWorkerYearPercent = response.data.results[0].dob.age;
-        this.bestWorkerMonthPercent = response.data.results[0].results.age;
-        this.worstWorkerYearPercent = response.data.results[1].dob.age;
-        this.worstWorkerMonthPercent = response.data.results[1].results.age;
-      });
     }
+  },
+  computed: {
+    ...mapGetters({
+      getBestWorkers: "workers/getBestWorkers"
+    })
   },
   mounted() {
     this.initBigChart(0);
-  },
-  created() {
-    this.getPeople();
   }
 };
 </script>
